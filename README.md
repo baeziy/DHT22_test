@@ -2,7 +2,9 @@
 
 WeatherPulse is a comprehensive weather monitoring solution that integrates Flutter, Firebase, and Raspberry Pi to offer real-time temperature and humidity readings. With the power of Adafruit's DHT sensors and the Raspberry Pi, this system provides accurate environmental data directly to your mobile device.
 
-![App Screenshot](app-screenshot.png)
+![Raspberry Pi 4](rpi.png)
+![App Screenshot](app-screenshot.JPG)
+
 
 ## 📌 Table of Contents
 
@@ -76,5 +78,6 @@ Distributed under the MIT License. See `LICENSE` for more information.
 ## 📞 Contact
 
 Mustafa Kamal - mustfakmalik@gmail.com
+Sarmad Sabir - sarmadsabir7@gmail.com
 
 ---
