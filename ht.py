@@ -4,6 +4,14 @@
 import time
 import board
 import adafruit_dht
+import firebase_admin
+from firebase_admin import credentials, db
+
+# Initialize Firebase
+cred = credentials.Certificate('firebase_key.json')  # Replace with the path to your Firebase service account key
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://temp-hum-e8845-default-rtdb.firebaseio.com/'
+})
 
 # Initial the dht device, with data pin connected to:
 #dhtDevice = adafruit_dht.DHT22(board.D18)
@@ -22,6 +30,12 @@ while True:
             "Temp: {:.1f} C    Humidity: {}% ".format(temperature_c, humidity
             )
         )
+ # Upload data to Firebase
+        ref = db.reference('sensor_data')  # 'sensor_data' is the node where data will be stored. You can change this as needed.
+        ref.set({
+            'temperature': temperature_c,
+            'humidity': humidity
+        })
 
     except RuntimeError as error:
         # Errors happen fairly often, DHT's are hard to read, just keep going
